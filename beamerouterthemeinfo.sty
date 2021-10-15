@@ -1,0 +1,64 @@
+\mode<presentation>
+
+\defbeamertemplate*{frametitle}{info}[1][left]{
+ \tikz[remember picture,overlay]{
+     \node(a)[anchor=west]{\usebeamerfont{frametitle}\insertframetitle};
+     \draw[line width=0.2em, headerline](a.south west)--+(10,0);
+  }
+  \vskip1em 
+} 
+
+\defbeamertemplate*{title page}{info}[1][]{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node (backgroundImage) [
+            anchor=north west,
+            opacity=1.0,
+            inner sep=0pt
+            ] at ($(current page.north west)+(0,-3.51cm)$) {%
+            \includegraphics[width=\paperwidth]{background}
+        };
+        \node (back names) [%
+            shape=rectangle, 
+            fill=titlebox,
+            fill opacity=0.7,
+            text opacity=1, 
+            minimum height=1.02\textheight,
+            minimum width=0.6\textwidth, 
+            anchor=north west
+        ] at (current page.north west) {
+            \begin{minipage}{0.5\textwidth}
+                \usebeamerfont{title}\begin{flushleft}\inserttitle\end{flushleft} \par
+                \vspace{0.5em}
+                \usebeamerfont{subtitle}\insertsubtitle \par
+                \bigskip
+                \usebeamerfont{author}\insertauthor \par
+                \usebeamerfont{institute}\insertinstitute \par
+                \usebeamerfont{date}\insertdate \par
+                \inserttitlegraphic
+            \end{minipage}
+        };
+    \end{tikzpicture}
+}
+
+% only for the image: http://ctan.org/pkg/mwe
+%      \setbeamertemplate{background}{\includegraphics[width=\paperwidth]{example-image.pdf}}
+
+% \let\oldmaketitle\maketitle
+% \renewcommand{\maketitle}[1]{{% It needs the double bracing for it to work
+%     \usebackgroundtemplate{%
+%         \begin{tikzpicture}
+%             \node[
+%                 opacity=1.0,
+%                 inner sep=0pt
+%             ]{%
+%                 \put(0,-200){%
+%                     \includegraphics[width=\paperwidth]{#1}
+%                 }
+%             };
+%         \end{tikzpicture}
+%     }
+%     \oldmaketitle{}
+% }}
+
+
+\mode<all>
