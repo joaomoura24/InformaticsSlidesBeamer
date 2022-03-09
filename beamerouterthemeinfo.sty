@@ -12,6 +12,7 @@
     \begin{tikzpicture}[remember picture,overlay]
         \node (backgroundImage) [
             anchor=north west,
+            draw=headerGrey,
             opacity=1.0,
             inner sep=0pt
             ] at ($(current page.north west)+(0,-1.4)$) {%
@@ -22,6 +23,7 @@
             shape=rectangle, 
             text opacity=1, 
             fill=headerGrey,
+            % draw=black,
             inner sep=0pt,
             outer sep=0pt,
             minimum height=0.155556\paperheight,
@@ -44,39 +46,17 @@
             minimum width=\paperwidth,
             anchor=north west,
         ] at ($(current page.north west)+(0,-2.8)$) {%
-            \begin{minipage}{0.5\textwidth}
-                \usebeamerfont{title}\begin{flushleft}\inserttitle\end{flushleft} \par
-                \vspace{0.5em}
-                \usebeamerfont{subtitle}\insertsubtitle \par
+            \begin{minipage}{\textwidth}
+                \usebeamerfont{title}\usebeamercolor[fg]{title}\begin{flushleft}\inserttitle\end{flushleft}\par
+                \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
                 \bigskip
-                \usebeamerfont{author}\insertauthor \par
-                \usebeamerfont{institute}\insertinstitute \par
-                \usebeamerfont{date}\insertdate \par
+                \usebeamerfont{author}\insertauthor\par
+                \usebeamerfont{institute}\insertinstitute\par
+                \usebeamerfont{date}\insertdate\par
                 \inserttitlegraphic
             \end{minipage}
         };
     \end{tikzpicture}
 }
-
-% only for the image: http://ctan.org/pkg/mwe
-%      \setbeamertemplate{background}{\includegraphics[width=\paperwidth]{example-image.pdf}}
-
-% \let\oldmaketitle\maketitle
-% \renewcommand{\maketitle}[1]{{% It needs the double bracing for it to work
-%     \usebackgroundtemplate{%
-%         \begin{tikzpicture}
-%             \node[
-%                 opacity=1.0,
-%                 inner sep=0pt
-%             ]{%
-%                 \put(0,-200){%
-%                     \includegraphics[width=\paperwidth]{#1}
-%                 }
-%             };
-%         \end{tikzpicture}
-%     }
-%     \oldmaketitle{}
-% }}
-
 
 \mode<all>
