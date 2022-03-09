@@ -1,10 +1,40 @@
 \mode<presentation>
 
-\defbeamertemplate*{frametitle}{info}[1][left]{
- \tikz[remember picture,overlay]{
-     \node(a)[anchor=west]{\usebeamerfont{frametitle}\insertframetitle};
-     \draw[line width=0.2em, headerline](a.south west)--+(10,0);
-  }
+\defbeamertemplate*{frametitle}{info}[1][]{
+  \begin{tikzpicture}[remember picture,overlay]
+    % top rectangle
+    \node (header) [%
+        shape=rectangle, 
+        text opacity=1, 
+        fill=headerGrey,
+        inner sep=0pt,
+        outer sep=0pt,
+        minimum height=0.155556\paperheight,
+        minimum width=\paperwidth, 
+        anchor=north,
+        ] at (current page.north) {};
+    % logo
+    \node (informaticsLogo) [%
+        anchor=north west,
+        inner sep=0pt,
+        ] at ($(current page.north west)+(0.2,-0.2)$) {%
+        \includegraphics[height=0.111111\paperheight]{InformaticsUni_CMYK}
+    };
+    % bottom rectangle
+    \node (footer) [%
+        shape=rectangle, 
+        text opacity=1, 
+        fill=headerGrey,
+        inner sep=0pt,
+        outer sep=0pt,
+        minimum height=0.155556\paperheight,
+        minimum width=\paperwidth, 
+        anchor=south,
+        ] at (current page.south) {};
+    \node (frametitle) [%
+        anchor=north west,
+        ] at ($(current page.north west)+(1.1em,-1.6)$) {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle};
+  \end{tikzpicture}
   \vskip1em 
 } 
 
@@ -19,11 +49,10 @@
             \includegraphics[width=\paperwidth]{background}
         };
         % top rectangle
-        \node (back names) [%
+        \node (header) [%
             shape=rectangle, 
             text opacity=1, 
             fill=headerGrey,
-            % draw=black,
             inner sep=0pt,
             outer sep=0pt,
             minimum height=0.155556\paperheight,
