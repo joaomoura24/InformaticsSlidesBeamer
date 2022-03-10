@@ -1,5 +1,21 @@
 \mode<presentation>
 
+\newif\ifbeamer@info@noseperators
+\DeclareOptionBeamer{noseperators}[true]{\csname beamer@info@noseperators#1\endcsname}
+
+\newcommand{\beamerinfothemeaddlimiter}[1]{%
+  \setbox\beamer@tempbox=\hbox{#1}%
+  \ifdim\wd\beamer@tempbox>1pt%
+    \ifbeamer@info@noseperators%
+      \hskip1.5ex
+    \else%
+      {\hskip0.5ex\usebeamercolor[fg]{frametitle}\textbar}
+    \fi
+    #1
+  \fi%
+}
+
+
 \defbeamertemplate*{frametitle}{info theme}[1][]{
   \begin{tikzpicture}[remember picture,overlay]
     % top rectangle
@@ -33,7 +49,10 @@
         ] at (current page.south) {};
     \node (frametitle) [%
         anchor=north west,
-        ] at ($(current page.north west)+(0.9em,-1.6)$) {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle};
+        ] at ($(current page.north west)+(0.9em,-1.6)$) {%
+        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle
+        \beamerinfothemeaddlimiter{\usebeamercolor[fg]{framesubtitle}\usebeamerfont{frametitle}\insertframesubtitle}
+      };
   \end{tikzpicture}
   \vskip1em 
 } 
@@ -43,10 +62,12 @@
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=.9\paperwidth,ht=2.25ex,dp=1.5ex,left]{section in head/foot}%
-      \usebeamerfont{section in head/foot}\hspace*{.025\paperwidth}\insertsectionhead\hspace*{1cm}%
+      \usebeamerfont{section in head/foot}\hspace*{.025\paperwidth}
+      \insertsectionhead
+      \beamerinfothemeaddlimiter{\insertsubsectionhead}
+      \hspace*{1cm}%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1.5ex,center]{section in head/foot}%
-      % \usebeamerfont{section in head/foot} \insertframenumber/\inserttotalframenumber
       \usebeamerfont{section in head/foot} \insertframenumber/\inserttotalframenumber
     \end{beamercolorbox}%
   }
