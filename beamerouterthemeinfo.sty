@@ -9,7 +9,7 @@
     \ifbeamer@info@noseperators%
       \hskip1.5ex
     \else%
-      {\hskip0.5ex\usebeamercolor[fg]{frametitle}\textbar}
+      {\hskip0.5ex\textcolor{infoRed}{\textbar}}
     \fi
     % \hskip-0.5ex
     #1
@@ -51,8 +51,8 @@
     \node (frametitle) [%
         anchor=north west,
         ] at ($(current page.north west)+(0.9em,-1.6)$) {%
-        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle
-        \beamerinfothemeaddlimiter{\usebeamercolor[fg]{framesubtitle}\usebeamerfont{frametitle}\insertframesubtitle}
+        \usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle
+        \beamerinfothemeaddlimiter{\usebeamerfont{framesubtitle}\textcolor{infoBlue}{\insertframesubtitle}}
       };
   \end{tikzpicture}
   \vskip1em 
@@ -82,7 +82,7 @@
   \hspace{-0.6cm}
   \makebox[1em][l]{\insertfootnotemark}%
   \begin{minipage}{1.05\textwidth}
-    \footnotesize\linespread{0.0}\selectfont\insertfootnotetext
+    \tiny\linespread{0.0}\selectfont\insertfootnotetext
   \end{minipage}\vskip 0pt
 }% end of footnote template
 
