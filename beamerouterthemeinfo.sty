@@ -11,6 +11,7 @@
     \else%
       {\hskip0.5ex\usebeamercolor[fg]{frametitle}\textbar}
     \fi
+    % \hskip-0.5ex
     #1
   \fi%
 }
@@ -63,7 +64,9 @@
   \hbox{%
     \begin{beamercolorbox}[wd=.9\paperwidth,ht=2.25ex,dp=1.5ex,left]{section in head/foot}%
       \usebeamerfont{section in head/foot}\hspace*{.025\paperwidth}
-      \insertsectionhead
+      \insertshorttitle
+      \beamerinfothemeaddlimiter{\insertsectionhead}
+      \hskip-1.0ex
       \beamerinfothemeaddlimiter{\insertsubsectionhead}
       \hspace*{1cm}%
     \end{beamercolorbox}%
