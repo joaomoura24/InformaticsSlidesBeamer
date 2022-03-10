@@ -1,6 +1,6 @@
 \mode<presentation>
 
-\defbeamertemplate*{frametitle}{info}[1][]{
+\defbeamertemplate*{frametitle}{info theme}[1][]{
   \begin{tikzpicture}[remember picture,overlay]
     % top rectangle
     \node (header) [%
@@ -38,7 +38,22 @@
   \vskip1em 
 } 
 
-\defbeamertemplate*{title page}{info}[1][]{
+\defbeamertemplate*{footline}{info theme}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.9\paperwidth,ht=2.25ex,dp=1.5ex,left]{section in head/foot}%
+      \usebeamerfont{section in head/foot}\hspace*{.025\paperwidth}\insertsectionhead\hspace*{1cm}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1.5ex,center]{section in head/foot}%
+      % \usebeamerfont{section in head/foot} \insertframenumber/\inserttotalframenumber
+      \usebeamerfont{section in head/foot} \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}%
+  }
+  \vskip0pt%
+}
+
+\defbeamertemplate*{title page}{info theme}[1][]{
     \begin{tikzpicture}[remember picture,overlay]
         \node (backgroundImage) [
             anchor=north west,

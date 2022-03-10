@@ -2,16 +2,18 @@
 
 \usepackage{beamerthemeinfo}
 
-
 \title{Title}
 \subtitle{Subtitle}
 \author{Authors' names}
+\date{\today}
 \institute{Institute}
 
 \begin{document}
 
 % \maketitle{background}
-\maketitle
+\begin{frame}[plain,noframenumbering]
+  \maketitle
+\end{frame}
 
 \begin{frame}
   \frametitle{H1 headline}
@@ -24,9 +26,14 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{First slide example text}
-  This is some testy text that explains my point. The text will wrap at some point onto the next line.
+\begin{frame}{Let's do some Math!}
+  Finally, beautiful equations in the Informatics Template!
+  \begin{equation}
+    H = -\sum p(x)\log p(x)
+  \end{equation}
+\end{frame}
+
+\begin{frame}{First slide example text}
   Below is a list with some sample items:
   \begin{itemize}
     \item{item 1}
@@ -35,9 +42,11 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Title}
-  \begin{block}{Block contain stuff}
-    The body of the block. that is pretty long actually look it goes over two lines by now hopefully. The block is used for definitions and whatnot
+\begin{frame}
+  \frametitle{Title}
+  \framesubtitle{Subtitle}
+  \begin{block}{Block containing stuff}
+    The body of the block. This is pretty long actually---look it goes over two lines by now hopefully. The block is used for definitions and whatnots.
   \end{block}
   \begin{alertblock}{Alert block}
     This must be really important.
@@ -47,6 +56,8 @@
   \end{exampleblock}
 \end{frame}
 
-\maketitle
+\begin{frame}[plain,noframenumbering]
+  \maketitle
+\end{frame}
 
 \end{document}
