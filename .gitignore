@@ -13,3 +13,7 @@
 *.synctex.gz
 *.toc
 tags
+*.bbl
+*.bcf
+*.blg
+*.run.xml
