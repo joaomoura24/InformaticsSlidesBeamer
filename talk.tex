@@ -1,6 +1,10 @@
 \documentclass[aspectratio=169]{beamer}
 
 \usepackage{beamerthemeinfo}
+\usepackage{biblatex}
+\addbibresource{bib.bib}
+\renewcommand*{\footnotesize}{\tiny}
+% \usepackage{hyperref}
 
 \title[Short Title]{Title}
 \subtitle{Subtitle}
@@ -50,6 +54,7 @@
     \item{Test}
     \item{testy}
   \end{itemize}
+  And one citation here\footfullcite{Moura2019} and another there\footfullcite{Chris2021}.
 \end{frame}
 
 \section{Conclusion}

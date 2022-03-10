@@ -77,6 +77,15 @@
   \vskip0pt%
 }
 
+
+\setbeamertemplate{footnote}{ % <---
+  \hspace{-0.6cm}
+  \makebox[1em][l]{\insertfootnotemark}%
+  \begin{minipage}{1.05\textwidth}
+    \footnotesize\linespread{0.0}\selectfont\insertfootnotetext
+  \end{minipage}\vskip 0pt
+}% end of footnote template
+
 \defbeamertemplate*{title page}{info theme}[1][]{
     \begin{tikzpicture}[remember picture,overlay]
         \node (backgroundImage) [
