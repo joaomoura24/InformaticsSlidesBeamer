@@ -1,12 +1,12 @@
 \mode<presentation>
 
-\newif\ifbeamer@info@noseperators
-\DeclareOptionBeamer{noseperators}[true]{\csname beamer@info@noseperators#1\endcsname}
+\newif\ifbeamer@Informatics@noseperators
+\DeclareOptionBeamer{noseperators}[true]{\csname beamer@Informatics@noseperators#1\endcsname}
 
 \newcommand{\beamerinfothemeaddlimiter}[1]{%
   \setbox\beamer@tempbox=\hbox{#1}%
   \ifdim\wd\beamer@tempbox>1pt%
-    \ifbeamer@info@noseperators%
+    \ifbeamer@Informatics@noseperators%
       \hskip1.5ex
     \else%
       {\hskip0.5ex\textcolor{infoRed}{\textbar}}
@@ -17,7 +17,7 @@
 }
 
 
-\defbeamertemplate*{frametitle}{info theme}[1][]{
+\defbeamertemplate*{frametitle}{Informatics theme}[1][]{
   \begin{tikzpicture}[remember picture,overlay]
     % top rectangle
     \node (header) [%
@@ -58,7 +58,7 @@
   \vskip1em 
 } 
 
-\defbeamertemplate*{footline}{info theme}
+\defbeamertemplate*{footline}{Informatics theme}
 {
   \leavevmode%
   \hbox{%
@@ -86,7 +86,7 @@
   \end{minipage}\vskip 0pt
 }% end of footnote template
 
-\defbeamertemplate*{title page}{info theme}[1][]{
+\defbeamertemplate*{title page}{Informatics theme}[1][]{
     \begin{tikzpicture}[remember picture,overlay]
         \node (backgroundImage) [
             anchor=north west,
@@ -132,7 +132,6 @@
                 \usebeamerfont{author}\insertauthor\par
                 \usebeamerfont{institute}\insertinstitute\par
                 \usebeamerfont{date}\insertdate\par
-                % \inserttitlegraphic
             \end{minipage}
         };
     \end{tikzpicture}
