@@ -89,12 +89,13 @@
 \defbeamertemplate*{title page}{Informatics theme}[1][]{
     \begin{tikzpicture}[remember picture,overlay]
         \node (backgroundImage) [
-            anchor=north west,
+            anchor=north,
             draw=headerGrey,
             opacity=1.0,
             inner sep=0pt
-            ] at ($(current page.north west)+(0,-1.4)$) {%
-            \includegraphics[width=\paperwidth]{background.jpg}
+            ] at ($(current page.north)+(0,-1.4)$) {%
+            % \includegraphics[width=\paperwidth]{background.jpg}
+            \includegraphics[height=0.917\paperheight]{background.jpg}
         };
         % top rectangle
         \node (header) [%
@@ -103,7 +104,7 @@
             fill=headerGrey,
             inner sep=0pt,
             outer sep=0pt,
-            minimum height=0.155556\paperheight,
+            minimum height=0.16\paperheight,
             minimum width=\paperwidth, 
             anchor=north,
             ] at (current page.north) {};
