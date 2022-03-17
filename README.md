@@ -9,10 +9,11 @@ Both visual and automation improvements are very welcomed through Issues or Pull
 
 You can use your favourite Latex editor/compiler, but for quick testing you can simply use the provided Makefile, with
 ```
-Make
+make
 ```
 for generating the PDF and
 ```
-Make bib
+make bib
 ```
 for generating the references.
+You might need to make twice to generate the correct pdf, given the generation of the [tikz](https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ) pictures.
