@@ -17,7 +17,19 @@
 }
 
 
-\defbeamertemplate*{frametitle}{Informatics theme}[1][]{
+\defbeamertemplate*{frametitle}{Informatics theme}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node (frametitle) [%
+        anchor=north west,
+        ] at ($(current page.north west)+(0.9em,-1.6)$) {%
+        \usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle
+        \beamerinfothemeaddlimiter{\usebeamerfont{framesubtitle}\textcolor{infoBlue}{\insertframesubtitle}}
+      };
+  \end{tikzpicture}
+  \vskip2em 
+} 
+
+\defbeamertemplate*{headline}{Informatics theme}{
   \begin{tikzpicture}[remember picture,overlay]
     % top rectangle
     \node (header) [%
@@ -48,15 +60,9 @@
         minimum width=\paperwidth, 
         anchor=south,
         ] at (current page.south) {};
-    \node (frametitle) [%
-        anchor=north west,
-        ] at ($(current page.north west)+(0.9em,-1.6)$) {%
-        \usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle
-        \beamerinfothemeaddlimiter{\usebeamerfont{framesubtitle}\textcolor{infoBlue}{\insertframesubtitle}}
-      };
   \end{tikzpicture}
   \vskip2em 
-} 
+}
 
 \defbeamertemplate*{footline}{Informatics theme}
 {
